@@ -44,15 +44,15 @@ alertmanager:
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:147522590705:certificate/6d1a20f4-7ad7-475c-8bf2-8eecd9eb4372"
+      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:523398196642:certificate/43fba346-aa93-4ec6-bc13-10653c959f58"
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      alb.ingress.kubernetes.io/group.name: "devops-pub-alb"
+      alb.ingress.kubernetes.io/group.name: "wcn-pub-alb"
       alb.ingress.kubernetes.io/target-type: ip
       alb.ingress.kubernetes.io/backend-protocol: HTTP
     ## Hosts must be provided if Ingress is enabled.
     ##
     hosts:
-      - alertmanager.huncorp.site
+      - alertmanager.flerogamessvc.com
     ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
     ##
     paths:
@@ -63,7 +63,7 @@ alertmanager:
     pathType: Prefix
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
     ##
-    externalUrl: "https://alertmanager.huncorp.site"
+    externalUrl: "https://alertmanager.flerogamessvc.com"
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
 grafana:
@@ -72,7 +72,7 @@ grafana:
   ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
   ##
   defaultDashboardsTimezone: Asia/Seoul
-  adminPassword: wjdgns*3!1
+  adminPassword: Zjsprxm!@34%
   ingress:
     ## If true, Grafana Ingress will be created
     ##
@@ -86,9 +86,9 @@ grafana:
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:147522590705:certificate/6d1a20f4-7ad7-475c-8bf2-8eecd9eb4372"
+      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:523398196642:certificate/43fba346-aa93-4ec6-bc13-10653c959f58"
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      alb.ingress.kubernetes.io/group.name: "devops-pub-alb"
+      alb.ingress.kubernetes.io/group.name: "wcn-pub-alb"
       alb.ingress.kubernetes.io/target-type: ip
       alb.ingress.kubernetes.io/backend-protocol: HTTP
     ## Hostnames.
@@ -97,7 +97,7 @@ grafana:
     # hosts:
     #   - grafana.domain.com
     hosts:
-      - grafana.huncorp.site
+      - grafana.flerogamessvc.com
     ## Path for grafana ingress
     path: /
     
@@ -138,9 +138,9 @@ prometheus:
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:147522590705:certificate/6d1a20f4-7ad7-475c-8bf2-8eecd9eb4372"
+      alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:523398196642:certificate/43fba346-aa93-4ec6-bc13-10653c959f58"
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      alb.ingress.kubernetes.io/group.name: "devops-pub-alb"
+      alb.ingress.kubernetes.io/group.name: "wcn-pub-alb"
       alb.ingress.kubernetes.io/target-type: ip
       alb.ingress.kubernetes.io/backend-protocol: HTTP
     labels: {}
@@ -152,7 +152,7 @@ prometheus:
     # hosts:
     #   - prometheus.domain.com
     hosts:
-      - prometheus.huncorp.site
+      - prometheus.flerogamessvc.com
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
     ##
     paths:
@@ -166,7 +166,7 @@ prometheus:
   prometheusSpec:
     ## External URL at which Prometheus will be reachable.
     ##
-    externalUrl: "https://prometheus.huncorp.site"
+    externalUrl: "https://prometheus.flerogamessvc.com"
     ## If true, a nil or {} value for prometheus.prometheusSpec.serviceMonitorSelector will cause the
     ## prometheus resource to be created with selectors based on values in the helm deployment,
     ## which will also match the servicemonitors created
